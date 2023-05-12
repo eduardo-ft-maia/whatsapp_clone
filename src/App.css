@@ -43,6 +43,9 @@ header {
     align-items: center;
     cursor: pointer;
 }
+.header-btn:hover {
+    color: #dcf8c6;
+}
 .search {
     background-color: #f6f6f6;
     border-bottom: 1px solid #eee;

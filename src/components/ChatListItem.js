@@ -1,7 +1,8 @@
 import React from 'react';
 import './ChatListItem.css';
+import './ChatWindow.js'
 
-export default ({onClick, active, data}) => {
+export default ({onClick, active, data, list}) => {
     return (
         <div 
             className={`chatListItem ${active ? 'active' : ''}`} 
@@ -15,7 +16,7 @@ export default ({onClick, active, data}) => {
                 </div>
                 <div className='chatListItem-line'>
                     <div className='chatListItem-lastMsg'>
-                        <p>Ave Maria gratia plena, dominus tecum, benedicta tu intri mulieribus, et benedictus fructus ventres tui Jesus, Sancta Maria Mater Dei, ora pro nobis pecatoribus, nunc et in nobis mortis nostrae, Amem</p>
+                        <p>Click to open the chat</p>
                     </div>
 
                 </div>

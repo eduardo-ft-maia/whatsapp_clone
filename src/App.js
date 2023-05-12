@@ -4,6 +4,7 @@ import './App.css';
 import ChatListItem from './components/ChatListItem';
 import ChatIntro from './components/ChatIntro';
 import ChatWindow from './components/ChatWindow';
+import NewChat from './components/NewChat';
 
 import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -18,19 +19,36 @@ export default () => {
 		{chatId: 3, title: 'Gajo', image: 'https://vectorified.com/images/avatar-icon-png-18.jpg'},
 		{chatId: 4, title: 'Mamona', image: 'https://vectorified.com/images/avatar-icon-png-18.jpg'}
 	]);
+
 	const [activeChat, setActiveChat] = useState({});
+	const [user, setUser] = useState({
+		id: 1234,
+		avatar:'https://vectorified.com/images/avatar-icon-png-18.jpg',
+		name:'nonerm'
+	});
+
+	const [showNewChat, setShowNewChat] = useState(false);
+
+	const handleNewChat = () => {
+		setShowNewChat(true);
+	}
 
 	return (
 		<div className='app-window'>
 			<div className='sidebar'>
-
+				<NewChat
+					chatlist={chatlist}
+					user={user}
+					show={showNewChat}
+					setShow={setShowNewChat}
+				/>
 				<header>
-					<img className='header-avatar' src='https://vectorified.com/images/avatar-icon-png-18.jpg' alt='' />
+					<img className='header-avatar' src={user.avatar} alt='' />
 					<div className='header-buttons'>
 						<div className='header-btn'>
 							<DonutLargeIcon style={{color: '#919191'}} />
 						</div>
-						<div className='header-btn'>
+						<div onClick={handleNewChat} className='header-btn'>
 							<ChatIcon style={{color: '#919191'}} />
 						</div>
 						<div className='header-btn'>
@@ -60,7 +78,9 @@ export default () => {
 			</div>
 			<div className='content-area'>
 				{activeChat.chatId !== undefined &&
-					<ChatWindow />
+					<ChatWindow 
+						user={user}
+					/>
 				}
 				{activeChat.chatId === undefined &&
 					<ChatIntro />
