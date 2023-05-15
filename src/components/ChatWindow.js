@@ -110,9 +110,6 @@ export default ({user, data}) => {
         var objDiv = document.getElementById("chatWindow-body");
         objDiv.scrollTop = objDiv.scrollHeight;
         
-        
-
-        // document.getElementById('chatWindow-body').scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
 
     return (
